@@ -50,7 +50,7 @@ function getResources(id) {
   return db("project_resources as pr")
     .join("resources as r", "pr.resource_id", "r.id")
     .select("pr.project_id", "r.id", "r.name", "r.description")
-    .where({ project_id: id });
+    .where("pr.project_id", id);
 }
 
 function addResources(resource) {
